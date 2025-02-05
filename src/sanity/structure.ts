@@ -1,7 +1,10 @@
-import { StructureBuilder } from 'sanity/desk';
+import { list, documentTypeListItem } from 'sanity/structure';  // Correct named imports directly from 'sanity/structure'
 
-// https://www.sanity.io/docs/structure-builder-cheat-sheet
-export const structure = (S: StructureBuilder) =>
-  S.list()
-    .title('Content')
-    .items(S.documentTypeListItems());
+export const structure = list()
+  .title("Content")
+  .items([
+    documentTypeListItem("post").title("Posts"),
+    documentTypeListItem("author").title("Authors"),
+  ]);
+export { list, documentTypeListItem };
+
